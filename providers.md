@@ -140,6 +140,10 @@ Now we can add this property mapping to authentik's Jellyfin OAuth provider:
 
   ![image](img/authentik-config-05.jpg)
 
+#### Device Authorization
+
+If you want to use the device authorization flow, make sure to create an authentik flow according to the [official documentation](https://docs.goauthentik.io/add-secure-apps/providers/oauth2/device_code/).
+
 ### Jellyfin's Config
 
 On Jellyfin's end, we need to configure an authentik provider as follows:
@@ -169,6 +173,8 @@ Ensure that the following configuration options are set:
 
 - Access Type: Confidential
 - Standard Flow Enabled
+- Optional: Device Authorization Grant Enabled
+  - If you want to use the device authorization flow
 - Redirect URI: https://myjellyfin.example.com/sso/OID/redirect/PROVIDER_NAME
 - Redirect URI (for Android app): org.jellyfin.mobile://login-callback
 - Base URL: https://myjellyfin.example.com
